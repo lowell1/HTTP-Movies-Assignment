@@ -49,6 +49,12 @@ const MovieForm = (props) => {
 
     const updateMovie = e => {
         e.preventDefault();
+
+        axios.put(`http://localhost:5000/api/movies/${props.match.params.id}`, 
+            {...form, stars: stars, id: props.match.params.id}
+        )
+        .then(() => console.log("success"))
+        .catch(error => console.log(error));
     }
 
 
